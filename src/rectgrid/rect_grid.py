@@ -162,9 +162,3 @@ class RectGrid:
             pygame.display.flip()
             self.clock.tick(self.settings.fps)
             time.sleep(self.settings.delay)
-
-
-if __name__ == "__main__":
-    grid = RectGrid()
-    grid.run()
-    print("Rectángulos totales:", grid.counter.count)

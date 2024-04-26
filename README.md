@@ -16,5 +16,20 @@ Al final de todos los recorridos el contador devolverá el número de rectángul
 
 ![alt text](images/image-1.png)
 
-# Updates
+## Uso
+Para ejecutar la aplicación, ejecuta el archivo **.exe** haciendo doble clic.
+
+Si quieres personalizar la cuadrícula, abre una consola y ejecuta el archivo pasándole el argumento size.
+
+Ejemplo en **bash**:
+
+```sh
+$ ./rectsingrid.exe --size 8
+```
+
+De momento el tamaño está limitado entre 1 y 10
+
+## Updates
 Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)
+
+Se ha empaquetado la aplicación para que pueda recibir argumentos con consola al ejecutar el archivo principal
