@@ -27,7 +27,7 @@ Ejemplo en **bash**:
 $ ./rectsingrid.exe --size 8
 ```
 
-De momento el tamaño está limitado entre 1 y 10
+De momento el tamaño está limitado entre 2 y 10. Obviamente una cuadrícula de 1 no tiene rectángulos posibles.
 
 ## Updates
 Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)

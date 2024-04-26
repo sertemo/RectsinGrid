@@ -26,9 +26,9 @@ def main() -> None:
             _description_
         """
         ivalue = int(value)
-        if ivalue < 1 or ivalue > 10:
+        if ivalue <= 1 or ivalue > 10:
             raise argparse.ArgumentTypeError(
-                f"{value} es un valor inválido para el tamaño de la cuadrícula. Debe estar entre 1 y 10."
+                f"{value} es un valor inválido para el tamaño de la cuadrícula. Debe estar entre 2 y 10."
             )
         return ivalue
 
@@ -39,7 +39,7 @@ def main() -> None:
         "--size",
         type=check_size,
         default=5,
-        help="Tamaño de la cuadrícula (nxn). Valores válidos entre 1 y 10.",
+        help="Tamaño de la cuadrícula (nxn). Valores válidos entre 2 y 10.",
     )
     args = parser.parse_args()
 
