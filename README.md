@@ -1,6 +1,7 @@
 # Rects in a Grid 0.1.0
+![Tests](https://github.com/sertemo/DesafioAidTecSolutions/actions/workflows/tests.yml/badge.svg)
 
-## Pequeño proyecto que pretende resolver de forma visual la pregunta de: ¿ Cuántos rectángulos caben en una cuadrícula de 5 x 5 ?
+## ¿ Cuántos rectángulos caben en una cuadrícula de 5 x 5 ?
 
 ## Recursos
 Se usará **pygame** para la visualización
@@ -17,7 +18,7 @@ Al final de todos los recorridos el contador devolverá el número de rectángul
 ![alt text](images/image-1.png)
 
 ## Uso
-Para ejecutar la aplicación, ejecuta el archivo **.exe** haciendo doble clic.
+Para ejecutar la aplicación, ejecuta el archivo **.exe** haciendo doble clic. Esto abrirá una cuadrícula por defecto de 5x5.
 
 Si quieres personalizar la cuadrícula, abre una consola y ejecuta el archivo pasándole el argumento size.
 
@@ -33,3 +34,8 @@ De momento el tamaño está limitado entre 2 y 10. Obviamente una cuadrícula de
 Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)
 
 Se ha empaquetado la aplicación para que pueda recibir argumentos con consola al ejecutar el archivo principal
+
+## Posibles mejoras
+Posibilidad de personalizar la velocidad de avance de los rectángulos
+
+Posibilidad de personalizar colores de rectángulos
