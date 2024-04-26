@@ -1,0 +1,2 @@
+class NonCuadraticError(Exception):
+    pass
