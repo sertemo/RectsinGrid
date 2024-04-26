@@ -14,7 +14,7 @@ Cada movimiento es registrado en un contador.
 
 Al final de todos los recorridos el contador devolverá el número de rectángulos posibles dentro de la cuadrícula.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 # Updates
 Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)

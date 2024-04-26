@@ -14,7 +14,6 @@ class RectGrid:
     """Clase general que representa la
     cuadrícula"""
 
-    # TODO hacer que el tamaño sea un parámetro de entrada
     def __init__(self, grid: tuple[int, int] = (5, 5)) -> None:
         """Inicializa la visualización
 
