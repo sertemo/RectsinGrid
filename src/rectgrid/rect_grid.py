@@ -5,9 +5,9 @@ from typing import Iterator
 
 import pygame
 
-from counter import RectCounter
-from custom_exceptions import NonCuadraticError
-from settings import Settings
+from rectgrid.counter import RectCounter
+from rectgrid.custom_exceptions import NonCuadraticError
+from rectgrid.settings import Settings
 
 
 class RectGrid:
