@@ -3,11 +3,10 @@
 
 class Settings:
     def __init__(self) -> None:
-        self.width = 500
-        self.heigth = 500
-        self.grid_size = 5
-        self.cell_size = self.width // self.grid_size
+        self.default_scale = 100
         self.fps = 60
+        # Movimiento del rectángulo
+        self.delay = 0.1
 
         # Colores
         self.white = (255, 255, 255)

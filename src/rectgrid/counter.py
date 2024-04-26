@@ -1,5 +1,5 @@
 class RectCounter:
-    count = 1
+    count = 0
 
     def add(self) -> None:
         self.count += 1
