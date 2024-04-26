@@ -36,25 +36,21 @@ class RectGrid:
         # Contador para contar número de rectángulos
         self.counter = RectCounter()
         # Configurar pantalla
-        self.screen = pygame.display.set_mode((self.settings.width, self.settings.heigth))
+        self.screen = pygame.display.set_mode(
+            (self.settings.width, self.settings.heigth)
+        )
         pygame.display.set_caption("Rectángulos en Cuadrícula 5x5")
-
 
     def _draw_grid(self) -> None:
         """Dibuja la cuadrícula"""
         for x in range(0, self.settings.width, self.settings.cell_size):
             for y in range(0, self.settings.heigth, self.settings.cell_size):
-                rect = pygame.Rect(x, y, self.settings.cell_size, self.settings.cell_size)
+                rect = pygame.Rect(
+                    x, y, self.settings.cell_size, self.settings.cell_size
+                )
                 pygame.draw.rect(self.screen, self.settings.black, rect, 1)
 
-
-    def _draw_rectangle(
-            self,
-            x: int, 
-            y: int, 
-            w: int, 
-            h: int
-            ) -> None:
+    def _draw_rectangle(self, x: int, y: int, w: int, h: int) -> None:
         """Dibuja un rectángulo
 
         Parameters
@@ -69,18 +65,18 @@ class RectGrid:
             número de filas que ocupa
         """
         rect = pygame.Rect(
-            x * self.settings.cell_size, 
-            y * self.settings.cell_size, 
-            w * self.settings.cell_size, 
-            h * self.settings.cell_size)
+            x * self.settings.cell_size,
+            y * self.settings.cell_size,
+            w * self.settings.cell_size,
+            h * self.settings.cell_size,
+        )
         pygame.draw.rect(self.screen, self.settings.blue, rect)
 
-
     def _get_rectangles(
-            self,
-            grid: tuple[int] = (5, 5)
-            ) -> Iterator:
-        """Devuelve una lista de tuplas con las dimensiones de todos los rectangulos
+        self, grid: tuple[int, int] = (5, 5)
+    ) -> Iterator[tuple[int, int]]:
+        """Devuelve una lista de tuplas con las dimensiones de todos
+        los rectangulos
         posibles en una cuadrícula del tamaño grid
 
         Parameters
@@ -96,18 +92,18 @@ class RectGrid:
         filas, columnas = grid
 
         if filas != columnas:
-            raise NonCuadraticError('La cuadrícula tiene que ser cuadrada')
+            raise NonCuadraticError("La cuadrícula tiene que ser cuadrada")
 
         return permutations(range(1, filas + 1), 2)
 
-
     # Función principal
     def run(self):
-        """Lanza la visualización
-        """
+        """Lanza la visualización"""
         dim_rect = self._get_rectangles()
         rect_x, rect_y = 0, 0  # Posiciones iniciales del rectángulo
-        rect_w, rect_h = next(dim_rect)  # Ancho y alto del rectángulo (modificar según sea necesario)
+        rect_w, rect_h = next(
+            dim_rect
+        )  # Ancho y alto del rectángulo (modificar según sea necesario)
 
         print(f"Dimensión inicial: ({rect_h}, {rect_w})")
 
