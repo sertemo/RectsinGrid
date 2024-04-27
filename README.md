@@ -4,7 +4,7 @@
 ## ¿ Cuántos rectángulos caben en una cuadrícula de 5 x 5 ?
 
 ## Recursos
-Se usará **pygame** para la visualización
+Se usará **pygame 2.5.2** para la visualización
 
 ## Descripción
 Dada una cuadrícula de 5 x 5, el programa crea todos los posibles rectángulos permutando un rango de números de 1 a 5 en combinaciones de 2.
@@ -31,11 +31,12 @@ $ ./rectsingrid.exe --size 8
 De momento el tamaño está limitado entre 2 y 10. Obviamente una cuadrícula de 1 no tiene rectángulos posibles.
 
 ## Updates
-Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)
+- 26/04/2024
+    - Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)
+    - Se ha empaquetado la aplicación para que pueda recibir argumentos con consola al ejecutar el archivo principal
 
-Se ha empaquetado la aplicación para que pueda recibir argumentos con consola al ejecutar el archivo principal
+-27/04/2024
+    - Se implementa posibilidad de utilizar flag --color para personalizar el color de los rectángulos. Pero al compilar en el exe no parece poder usarse.
 
 ## Posibles mejoras
 Posibilidad de personalizar la velocidad de avance de los rectángulos
-
-Posibilidad de personalizar colores de rectángulos

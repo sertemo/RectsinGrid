@@ -1,37 +1,14 @@
+"""Módulo entry point de la aplicación"""
+
 import argparse
 import time
-from typing import Any
 
+from rectgrid.colors import Color
 from rectgrid.rect_grid import RectGrid
+from rectgrid.utils import check_size
 
 
 def main() -> None:
-    def check_size(value: Any) -> int:
-        """Chequea que el argumento pasado
-        esté entre 1 y 10
-
-        Parameters
-        ----------
-        value : Any
-            _description_
-
-        Returns
-        -------
-        int
-            _description_
-
-        Raises
-        ------
-        argparse.ArgumentTypeError
-            _description_
-        """
-        ivalue = int(value)
-        if ivalue <= 1 or ivalue > 10:
-            raise argparse.ArgumentTypeError(
-                f"{value} es un valor inválido para el tamaño de la cuadrícula. Debe estar entre 2 y 10."
-            )
-        return ivalue
-
     parser = argparse.ArgumentParser(
         description="Visualización de rectángulos en cuadrícula configurable."
     )
@@ -41,13 +18,32 @@ def main() -> None:
         default=5,
         help="Tamaño de la cuadrícula (nxn). Valores válidos entre 2 y 10.",
     )
+    parser.add_argument(
+        "--color",
+        type=Color.from_string,
+        default="azul",
+        help="Color de visualización de los rectángulos (azul, verde, rojo, negro, naranja). Por defecto azul.",
+    )
     args = parser.parse_args()
 
-    print(args.size)
+    if args.color == Color.AZUL:
+        color = Color.AZUL.value
+    elif args.color == Color.ROJO:
+        color = Color.ROJO.value
+    elif args.color == Color.VERDE:
+        color = Color.VERDE.value
+    elif args.color == Color.NEGRO:
+        color = Color.NEGRO.value
+    elif args.color == Color.NARANJA:
+        color = Color.NARANJA.value
 
-    rectgrid = RectGrid((args.size, args.size))
+    print(args.color)
+    rectgrid = RectGrid(grid=(args.size, args.size), color=color)
     rectgrid.run()
-    print("Rectángulos totales:", rectgrid.counter.count)
+    print(
+        f"Rectángulos totales en cuadrícula {args.size}x{args.size}:",
+        rectgrid.counter.count,
+    )
     time.sleep(3)
 
 

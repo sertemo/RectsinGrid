@@ -1,3 +1,5 @@
+"""Módulo con la clase principal que contiene la lógica de la cuadrícula"""
+
 from itertools import permutations
 import sys
 import time
@@ -5,6 +7,7 @@ from typing import Iterator
 
 import pygame
 
+from rectgrid.colors import Color
 from rectgrid.counter import RectCounter
 from rectgrid.custom_exceptions import NonCuadraticError
 from rectgrid.settings import Settings
@@ -14,7 +17,9 @@ class RectGrid:
     """Clase general que representa la
     cuadrícula"""
 
-    def __init__(self, grid: tuple[int, int] = (5, 5)) -> None:
+    def __init__(
+        self, grid: tuple[int, int] = (5, 5), color: tuple[int, int, int] = (0, 0, 255)
+    ) -> None:
         """Inicializa la visualización
 
         Returns
@@ -39,6 +44,7 @@ class RectGrid:
         self.width = self.settings.default_scale * self.grid_size
         self.height = self.width
         self.cell_size = self.width // self.grid_size
+        self.color = color
 
         # Configurar pantalla
         self.screen = pygame.display.set_mode((self.width, self.height))
@@ -75,7 +81,7 @@ class RectGrid:
         for x in range(0, self.width, self.cell_size):
             for y in range(0, self.height, self.cell_size):
                 rect = pygame.Rect(x, y, self.cell_size, self.cell_size)
-                pygame.draw.rect(self.screen, self.settings.black, rect, 1)
+                pygame.draw.rect(self.screen, Color.NEGRO.value, rect, 1)
 
     def _draw_rectangle(self, x: int, y: int, w: int, h: int) -> None:
         """Dibuja un rectángulo
@@ -97,7 +103,7 @@ class RectGrid:
             w * self.cell_size,
             h * self.cell_size,
         )
-        pygame.draw.rect(self.screen, self.settings.blue, rect)
+        pygame.draw.rect(self.screen, self.color, rect)
 
     def _get_rectangles(self) -> Iterator[tuple[int, int]]:
         """Devuelve una lista de tuplas con las dimensiones de todos
@@ -131,7 +137,7 @@ class RectGrid:
                     pygame.quit()
                     sys.exit(0)
 
-            self.screen.fill(self.settings.white)
+            self.screen.fill(Color.BLANCO.value)
             self._draw_grid()
             self._draw_rectangle(rect_x, rect_y, rect_w, rect_h)
             # self.counter.add()
