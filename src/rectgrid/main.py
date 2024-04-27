@@ -5,7 +5,7 @@ import time
 
 from rectgrid.colors import Color
 from rectgrid.rect_grid import RectGrid
-from rectgrid.utils import check_size
+from rectgrid.utils import check_size_speed, transform_speed_to_delay
 
 
 def main() -> None:
@@ -14,9 +14,15 @@ def main() -> None:
     )
     parser.add_argument(
         "--size",
-        type=check_size,
+        type=check_size_speed,
         default=5,
         help="Tamaño de la cuadrícula (nxn). Valores válidos entre 2 y 10.",
+    )
+    parser.add_argument(
+        "--speed",
+        type=check_size_speed,
+        default=8,
+        help="Velocidad de desplazamiento del rectángulo. Valores válidos entre 2 y 10.",
     )
     parser.add_argument(
         "--color",
@@ -26,6 +32,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    # Convertimos el argumento a tupla RGB
     if args.color == Color.AZUL:
         color = Color.AZUL.value
     elif args.color == Color.ROJO:
@@ -37,8 +44,11 @@ def main() -> None:
     elif args.color == Color.NARANJA:
         color = Color.NARANJA.value
 
-    print(args.color)
-    rectgrid = RectGrid(grid=(args.size, args.size), color=color)
+    rectgrid = RectGrid(
+        grid=(args.size, args.size),
+        color=color,
+        speed=transform_speed_to_delay(args.speed),
+    )
     rectgrid.run()
     print(
         f"Rectángulos totales en cuadrícula {args.size}x{args.size}:",

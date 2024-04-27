@@ -4,9 +4,9 @@ import argparse
 from typing import Any
 
 
-def check_size(value: Any) -> int:
+def check_size_speed(value: Any) -> int:
     """Chequea que el argumento pasado
-    esté entre 1 y 10
+    esté entre 2 y 10
 
     Parameters
     ----------
@@ -26,6 +26,24 @@ def check_size(value: Any) -> int:
     ivalue = int(value)
     if ivalue <= 1 or ivalue > 10:
         raise argparse.ArgumentTypeError(
-            f"{value} es un valor inválido para el tamaño de la cuadrícula. Debe estar entre 2 y 10."
+            f"{value} es un valor inválido. Debe estar entre 2 y 10."
         )
     return ivalue
+
+
+def transform_speed_to_delay(x: int) -> float:
+    """Transforma la velocidad a un delay
+    min: 2 max: 10
+    min: 0.5 max: 0.01
+
+    Parameters
+    ----------
+    x : int
+        La velocidad
+
+    Returns
+    -------
+    float
+        Devuelve el delay
+    """
+    return -0.06125 * x + 0.6225

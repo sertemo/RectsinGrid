@@ -18,7 +18,10 @@ class RectGrid:
     cuadrícula"""
 
     def __init__(
-        self, grid: tuple[int, int] = (5, 5), color: tuple[int, int, int] = (0, 0, 255)
+        self,
+        grid: tuple[int, int] = (5, 5),
+        color: tuple[int, int, int] = (0, 0, 255),
+        speed: float = 0.1,
     ) -> None:
         """Inicializa la visualización
 
@@ -45,6 +48,7 @@ class RectGrid:
         self.height = self.width
         self.cell_size = self.width // self.grid_size
         self.color = color
+        self.speed = speed
 
         # Configurar pantalla
         self.screen = pygame.display.set_mode((self.width, self.height))
@@ -167,4 +171,4 @@ class RectGrid:
 
             pygame.display.flip()
             self.clock.tick(self.settings.fps)
-            time.sleep(self.settings.delay)
+            time.sleep(self.speed)

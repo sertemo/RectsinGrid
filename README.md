@@ -4,7 +4,13 @@
 ## ¿ Cuántos rectángulos caben en una cuadrícula de 5 x 5 ?
 
 ## Recursos
-Se usará **pygame 2.5.2** para la visualización
+Se usa **pygame 2.5.2** para la visualización
+
+Se usa [Nuitka](https://pypi.org/project/Nuitka/) para la compilación. En Windows:
+
+```sh
+$ python -m nuitka --standalone --onefile --mingw64 main.py
+```
 
 ## Descripción
 Dada una cuadrícula de 5 x 5, el programa crea todos los posibles rectángulos permutando un rango de números de 1 a 5 en combinaciones de 2.
@@ -20,12 +26,27 @@ Al final de todos los recorridos el contador devolverá el número de rectángul
 ## Uso
 Para ejecutar la aplicación, ejecuta el archivo **.exe** haciendo doble clic. Esto abrirá una cuadrícula por defecto de 5x5.
 
-Si quieres personalizar la cuadrícula, abre una consola y ejecuta el archivo pasándole el argumento size.
+Si quieres personalizar la cuadrícula, abre una consola y ejecuta el archivo pasándole el argumento **size**.
+
+Si quieres personalizar la velocidad, utiliza el argumento **speed**.
+
+Si quieres personalizar el color, utiliza el argumento **color**.
 
 Ejemplo en **bash**:
 
-```sh
-$ ./rectsingrid.exe --size 8
+```bash
+$ ./rectsingrid.exe --size 8 --color verde --speed 7
+```
+
+Ejemplo en **PowerShell**:
+
+```powershell
+> ./rectsingrid.exe --size 8 --color verde --speed 7
+```
+
+Para ver la ayuda:
+```bash
+$ ./rectsingrid.exe --help
 ```
 
 De momento el tamaño está limitado entre 2 y 10. Obviamente una cuadrícula de 1 no tiene rectángulos posibles.
@@ -35,8 +56,11 @@ De momento el tamaño está limitado entre 2 y 10. Obviamente una cuadrícula de
     - Se añade la posibilidad de adaptar la cuadrícula a la dimensión que se quiera (cuadrada)
     - Se ha empaquetado la aplicación para que pueda recibir argumentos con consola al ejecutar el archivo principal
 
--27/04/2024
-    - Se implementa posibilidad de utilizar flag --color para personalizar el color de los rectángulos. Pero al compilar en el exe no parece poder usarse.
+- 27/04/2024
+    - Se implementa posibilidad de utilizar flag **--color** para personalizar el color de los rectángulos. Los colores permitidos son: **verde**, **naranja**, **azul**, **rojo**, **verde**.
+    - Se implementa la flag **--speed** para personalizar la velocidad de los rectángulos
 
 ## Posibles mejoras
-Posibilidad de personalizar la velocidad de avance de los rectángulos
+Poner contador de tiempo tardado
+
+Poner contador de tipos de rectángulos estáticos distintos (permutaciones)
