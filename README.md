@@ -24,7 +24,9 @@ Al final de todos los recorridos el contador devolverá el número de rectángul
 ![alt text](images/image-1.png)
 
 ## Uso
-Para ejecutar la aplicación, ejecuta el archivo **.exe** haciendo doble clic. Esto abrirá una cuadrícula por defecto de 5x5.
+Descarga de la carpeta **data** el archivo `rectsingrid.exe`.
+
+Ejecuta el archivo haciendo doble clic. Esto abrirá una cuadrícula por defecto de 5x5.
 
 Si quieres personalizar la cuadrícula, abre una consola y ejecuta el archivo pasándole el argumento **size**.
 
@@ -59,6 +61,9 @@ De momento el tamaño está limitado entre 2 y 10. Obviamente una cuadrícula de
 - 27/04/2024
     - Se implementa posibilidad de utilizar flag **--color** para personalizar el color de los rectángulos. Los colores permitidos son: **verde**, **naranja**, **azul**, **rojo**, **verde**.
     - Se implementa la flag **--speed** para personalizar la velocidad de los rectángulos
+
+- 29/04/2024
+    - Intento de agregar un icono al programa compilado con nuitka: https://nuitka.net/user-documentation/user-manual.html#icons pero no se ejecuta. No sé si es error de Nuitka o de mi ordenador.
 
 ## Posibles mejoras
 Poner contador de tiempo tardado
